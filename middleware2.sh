@@ -22,15 +22,15 @@ if [ "$USER" = "" ]; then
   exit 1
 fi;
 
-# if [ "$AMPLITUDE_RELEASE_KEY" = "" ]; then
-#   echo "ERROR: amplitude.release is empty"
-#   exit 1
-# fi;
+if [ "$AMPLITUDE_RELEASE_KEY" = "" ]; then
+  echo "ERROR: amplitude.release is empty"
+  exit 1
+fi;
 
-# if [ "$AMPLITUDE_DEBUG_KEY" = "" ]; then
-#   echo "ERROR: amplitude.debug is empty"
-#   exit 1
-# fi;
+if [ "$AMPLITUDE_DEBUG_KEY" = "" ]; then
+  echo "ERROR: amplitude.debug is empty"
+  exit 1
+fi;
 
 if [ "$SENTRY_DSN" = ""]; then
   echo "ERROR: sentry_dsn is empty"
@@ -46,6 +46,6 @@ echo "$GITHUB_KEY_PROPERTY=$TOKEN" >> github.properties
 rm -rf apikeys.properties
 touch apikeys.properties
 
-# echo "$AMPLITUDE_DEBUG_PROPERTY=\"$AMPLITUDE_DEBUG_KEY\"" >> apikeys.properties
-# echo "$AMPLITUDE_RELEASE_PROPERTY=\"$AMPLITUDE_RELEASE_KEY\"" >> apikeys.properties
+echo "$AMPLITUDE_DEBUG_PROPERTY=\"$AMPLITUDE_DEBUG_KEY\"" >> apikeys.properties
+echo "$AMPLITUDE_RELEASE_PROPERTY=\"$AMPLITUDE_RELEASE_KEY\"" >> apikeys.properties
 echo "$SENTRY_DSN_PROPERTY=\"$SENTRY_DSN\"" >> apikeys.properties
