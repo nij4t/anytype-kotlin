@@ -79,7 +79,7 @@ android {
             shrinkResources true
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            // buildConfigField("String", "AMPLITUDE_KEY", apikeyProperties['amplitude.release'])
+            buildConfigField("String", "AMPLITUDE_KEY", apikeyProperties['amplitude.release'])
             if (useReleaseKeystore) {
                 signingConfig signingConfigs.release
             } else {
@@ -90,7 +90,7 @@ android {
         debug {
             applicationIdSuffix ".debug"
             debuggable true
-            // buildConfigField("String", "AMPLITUDE_KEY", apikeyProperties['amplitude.debug'])
+            buildConfigField("String", "AMPLITUDE_KEY", apikeyProperties['amplitude.debug'])
             //signingConfig signingConfigs.debug
             firebaseAppDistribution {
                 artifactType = "AAB"
