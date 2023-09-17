@@ -8,8 +8,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Setup middleware dependency
         env:
-          token_secret: ${{ secrets.ANYTYPE_SECRET }}
-          user_secret: ${{ secrets.ANYTYPE_USER_SECRET }}
+          token_secret: ${{ secrets.GITHUB_TOKEN }}
+          user_secret: ${{ github.actor }}
           amplitude_secret: ${{ secrets.ANYTYPE_AMPLITUDE_SECRET }}
           amplitude_secret_debug: ${{ secrets.ANYTYPE_AMPLITUDE_DEBUG_SECRET }}
           sentry_dsn_secret: ${{ secrets.ANYTYPE_SENTRY_DSN_SECRET }}
